@@ -5,16 +5,16 @@ reel and export the finished video.
 
 ## Download
 
-**The current build is [`v1.2.11`](https://github.com/slopenintercept/ship-it-preview/releases/tag/v1.2.11).**
+**The current build is [`v1.2.12`](https://github.com/slopenintercept/ship-it-preview/releases/tag/v1.2.12).**
 If a newer build is listed on the [Releases page](../../releases), take that one instead.
 
-The release page has one download: **`ShipItStudio-1.2.11-Setup.exe`**, the Studio.
+The release page has one download: **`ShipItStudio-1.2.12-Setup.exe`**, the Studio.
 
 Windows only for now.
 
 ## Install
 
-1. Open the [Releases page](../../releases) and download `ShipItStudio-1.2.11-Setup.exe`.
+1. Open the [Releases page](../../releases) and download `ShipItStudio-1.2.12-Setup.exe`.
 2. Run it. Windows SmartScreen will show a blue **"Windows protected your PC"** box. Click
    **More info**, then **Run anyway**. This is expected: the installer isn't code-signed yet, and
    SmartScreen warns about anything it hasn't seen signed.
