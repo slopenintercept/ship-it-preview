@@ -1,0 +1,271 @@
+/*
+ * exhibit: the page shell. A night wall with four pieces hung on it.
+ * JetBrains Mono only; the poster titles are the one place type gets large.
+ */
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../shared/fonts/JetBrainsMono.ttf') format('truetype');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #080b14;
+  --ink: #d7dcea;
+  --dim: #8590ac; /* 5.8:1 on the wall */
+  --line: rgba(215, 220, 234, 0.12);
+  --amber: #ffb020;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, Menlo, monospace;
+  --gx: clamp(24px, 7vw, 110px);
+  --edge: 28px; /* chrome inset */
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 12px / 1.7 var(--mono);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+p, h1, h2, ol, dl, dd, figure { margin: 0; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--amber); color: var(--bg); }
+
+/* The storm: fixed behind everything, fades out as the wall takes over. */
+#storm {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+
+main, .foot { position: relative; z-index: 1; }
+
+/* --- registration marks + corner chrome ------------------------------ */
+
+.marks i {
+  position: fixed;
+  z-index: 19;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  border: 0 solid rgba(215, 220, 234, 0.35);
+}
+.marks i:nth-child(1) { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
+.marks i:nth-child(2) { top: 8px; right: 8px; border-width: 1px 1px 0 0; }
+.marks i:nth-child(3) { bottom: 8px; left: 8px; border-width: 0 0 1px 1px; }
+.marks i:nth-child(4) { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
+
+.chrome {
+  position: fixed;
+  z-index: 20;
+  margin: 0;
+  padding: 3px 6px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--dim);
+  white-space: pre;
+  background: rgba(8, 11, 20, 0.5);
+}
+.chrome.tl { top: calc(var(--edge) - 6px); left: calc(var(--edge) - 6px); color: var(--ink); }
+.chrome.tr { top: calc(var(--edge) - 6px); right: calc(var(--edge) - 6px); color: var(--amber); }
+.chrome.bl { bottom: calc(var(--edge) - 6px); left: calc(var(--edge) - 6px); }
+.chrome.br { bottom: calc(var(--edge) - 6px); right: calc(var(--edge) - 6px); }
+.chrome.tr:hover, .act:hover { color: var(--bg); background: var(--amber); }
+
+a:focus-visible, button:focus-visible { outline: 1px solid var(--amber); outline-offset: 3px; }
+
+/* --- shared placard bits ------------------------------------------------ */
+
+.amber { color: var(--amber); }
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.poster {
+  font: 600 clamp(28px, 4.2vw, 56px) / 1.05 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+
+.what { font-size: 14px; color: var(--ink); }
+.list, .medium { font-size: 12px; color: var(--dim); }
+.medium span {
+  margin-right: 0.6em;
+  color: var(--ink);
+  opacity: 0.55;
+}
+.medium span::after { content: ' ▸'; }
+.mono { font-size: 11px; color: var(--dim); letter-spacing: 0.02em; }
+
+.act {
+  display: inline-block;
+  padding: 2px 4px;
+  margin: 0 -4px;
+  color: var(--amber);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+/* --- 01 the storm ----------------------------------------------------- */
+
+.stage { position: relative; min-height: 100svh; }
+
+.placard { display: grid; gap: 8px; }
+
+.stage .placard {
+  position: absolute;
+  left: var(--gx);
+  bottom: 72px;
+  width: min(440px, calc(100vw - 2 * var(--gx)));
+  gap: 7px;
+}
+.stage .poster { margin: 6px 0 8px; }
+.stage .act { justify-self: start; margin-top: 12px; }
+.stage .hint { margin-top: 6px; font-size: 11px; color: var(--dim); opacity: 0.8; }
+
+/* --- 02 to 04: pieces on the wall ------------------------------------- */
+
+.piece { padding: clamp(72px, 13vh, 150px) var(--gx) clamp(32px, 6vh, 70px); }
+.wall { max-width: 1180px; margin: 0 auto; position: relative; }
+
+.piece .label { margin-bottom: 20px; }
+
+.art {
+  position: relative;
+  border: 1px solid var(--line);
+  background: #050810;
+  line-height: 0;
+  overflow: hidden;
+}
+.art img { display: block; width: 100%; height: auto; }
+.art.strip { margin-top: 14px; }
+
+/* The glyph layer that decodes away over a piece (made by page.js). */
+.art canvas.decode {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+}
+
+.piece .placard {
+  margin-top: 30px;
+  max-width: 560px;
+  gap: 8px;
+}
+.piece .mono { margin-top: 6px; }
+
+/* 03: the 9:16 loop beside the crop screen */
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(170px, 22%, 260px);
+  gap: 14px;
+  align-items: stretch;
+}
+.reel {
+  border: 1px solid var(--line);
+  background: #050810;
+  line-height: 0;
+  overflow: hidden;
+}
+.reel video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 9 / 16;
+}
+
+/* the small thing in the margin */
+.find {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  width: 28px;
+  height: 28px;
+  font: 400 13px var(--mono);
+  color: var(--dim);
+  opacity: 0.4;
+  background: none;
+  border: 0;
+  cursor: default;
+}
+.find:hover, .find:focus-visible, .find.found { opacity: 1; color: var(--amber); }
+
+/* --- closing --------------------------------------------------------- */
+
+.close { padding: clamp(60px, 10vh, 120px) var(--gx) 40px; }
+.install { max-width: 560px; display: grid; gap: 14px; }
+.steps { list-style: none; padding: 0; display: grid; gap: 4px; }
+.steps li { display: grid; grid-template-columns: 34px 1fr; color: var(--ink); }
+.steps b { font-weight: 400; color: var(--dim); }
+.note { color: var(--dim); max-width: 52ch; }
+.req { display: grid; gap: 0; border-top: 1px solid var(--line); margin-top: 6px; }
+.req div {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.req dt { color: var(--dim); }
+.req dd { color: var(--ink); }
+
+.end {
+  margin-top: clamp(64px, 12vh, 130px);
+  font: 600 14px / 1.4 var(--mono);
+  color: var(--amber);
+}
+.tally { margin-top: 6px; font-size: 11px; color: var(--dim); }
+
+.foot {
+  width: min(1180px, calc(100% - 2 * var(--gx)));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  padding: 22px 0 76px;
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--dim);
+}
+.foot .sig { margin-left: auto; color: var(--ink); }
+
+/* --- small screens ---------------------------------------------------- */
+
+@media (max-width: 640px) {
+  :root { --edge: 22px; }
+  .chrome { font-size: 10.5px; }
+  .stage .placard { bottom: 62px; }
+  .stage .poster { font-size: 30px; }
+  .duo { grid-template-columns: minmax(0, 1fr); }
+  .reel { width: 56%; }
+  .req div { grid-template-columns: 70px 1fr; }
+  .foot .sig { margin-left: 0; }
+  .find { bottom: -34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}

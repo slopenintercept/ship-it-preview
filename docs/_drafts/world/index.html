@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" class="booting">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#080B14">
+<title>Ship It Studio: the Windows editor built for streamers</title>
+<meta name="description" content="Ship It Studio is the Windows editor built for streamers. Bring in your recordings, cut them on a real timeline, and export a reel for YouTube, TikTok or Shorts.">
+<link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg">
+<link rel="preload" href="../shared/fonts/JetBrainsMono.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="world.css">
+<noscript><link rel="stylesheet" href="noscript.css"></noscript>
+</head>
+<body>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="veil" id="veil" aria-hidden="true"></div>
+<div class="frame" aria-hidden="true"></div>
+
+<!-- first-visit boot: terminal lines, then the storm decodes in -->
+<div id="boot" hidden aria-hidden="true">
+  <pre id="boot-log"></pre>
+  <div class="skip">click or press any key to skip</div>
+</div>
+
+<header class="chrome">
+  <a class="path" href="#top"><span>~/collective/</span><b>ship-it</b></a>
+  <nav aria-label="sections">
+    <a href="#top" data-nav="top" aria-current="page">storm</a>
+    <a href="#cut" data-nav="cut" class="opt">cut</a>
+    <a href="#ship" data-nav="ship" class="opt">export</a>
+    <a href="#install" data-nav="install">install</a>
+  </nav>
+  <span class="found" id="found" title="something is hidden in the storm">0/1 found</span>
+  <div class="hud" aria-label="ship it studio at a glance">
+    <span class="k">v</span><b>1.2.15</b><span class="bar" data-ticks="10"></span>
+    <span class="k row-x">fps</span><b class="row-x">up to 120</b><span class="bar row-x" data-ticks="10"></span>
+    <span class="k row-x">exports</span><b class="row-x wide">mp4 · 9:16 · mp3 · gif</b>
+    <span class="k">sky</span><b id="sky">--:-- · night · rain</b><span class="bar" id="charge" data-ticks="10" title="charge until the next strike"></span>
+  </div>
+</header>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<main>
+
+  <section class="hero" id="top" data-section="top">
+    <div class="hero-copy" data-avoid>
+      <h1 class="tagline">the stream is long.<br>the highlight is short.<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="role">windows · for streamers · 1.2.15</p>
+      <p class="one">ship it studio takes your recordings, cuts them on a real timeline and exports a reel for tiktok, shorts or youtube.</p>
+      <a class="get" id="get" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">[ download for windows ]</a>
+      <p class="file">ShipItStudio-1.2.15-Setup.exe · about 284 mb · windows 10 or 11, 64-bit</p>
+    </div>
+    <p class="scrollcue" aria-hidden="true">the log, below</p>
+  </section>
+
+  <section class="steps wrap" aria-labelledby="log-h">
+    <h2 class="eyebrow" id="log-h">the log · oldest first</h2>
+
+    <article class="step" id="rec" data-section="rec">
+      <div class="note">
+        <p class="row"><span class="tag">[rec]</span> <span class="ttl">01 ▬ record</span></p>
+        <p>record in obs as usual. replay-buffer saves included.</p>
+        <p class="dim">originals are never touched.</p>
+        <p class="plac">fig 1 · a clip in the monitor</p>
+      </div>
+      <figure class="well r169" data-decode data-poster="../../assets/video/monitor-16x9-poster.webp">
+        <video src="../../assets/video/monitor-16x9.mp4" poster="../../assets/video/monitor-16x9-poster.webp" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="A looping test clip playing in the Studio monitor"></video>
+        <canvas class="glyphs" aria-hidden="true"></canvas>
+      </figure>
+    </article>
+
+    <article class="step" id="home" data-section="home">
+      <div class="note">
+        <p class="row"><span class="tag">[home]</span> <span class="ttl">02 ▬ organize</span></p>
+        <p>drag videos onto home, or ctrl+i. clips are filed by the day captured: today, yesterday, then dates.</p>
+        <p class="dim">star keepers · search · start a project from a clip or a whole day · trash you can restore from.</p>
+        <p class="plac">fig 2 · home</p>
+      </div>
+      <figure class="well r169" data-decode>
+        <img src="../../assets/img/home.webp" width="1920" height="1080" alt="Ship It Studio Home screen: a project, then clips grouped under Today, Yesterday and Monday">
+        <canvas class="glyphs" aria-hidden="true"></canvas>
+      </figure>
+    </article>
+
+    <article class="step" id="cut" data-section="cut">
+      <div class="note">
+        <p class="row"><span class="tag">[cut]</span> <span class="ttl">03 ▬ cut</span></p>
+        <p>a real timeline: video, photos, sound, titles and stickers on tracks.</p>
+        <p class="dim">trim · split · speed · reverse · keyframes · title styles · picture and sound effects · undo and redo.</p>
+        <p class="plac">fig 3 · editor, three clips</p>
+      </div>
+      <div class="stack">
+        <figure class="well r169" data-decode>
+          <img src="../../assets/img/editor.webp" width="1920" height="1080" alt="The Studio editor: media bin, preview with a yellow title, the inspector and a three-clip timeline">
+          <canvas class="glyphs" aria-hidden="true"></canvas>
+        </figure>
+        <figure class="well rtl" data-decode>
+          <img src="../../assets/img/timeline.webp" width="1736" height="150" alt="The Studio timeline: three clips on a video track with their sound drawn underneath">
+          <canvas class="glyphs" aria-hidden="true"></canvas>
+        </figure>
+      </div>
+    </article>
+
+    <article class="step" id="ship" data-section="ship">
+      <div class="note">
+        <p class="row"><span class="tag">[ship]</span> <span class="ttl">04 ▬ export</span></p>
+        <p>presets for tiktok, shorts, reels, youtube and discord, or set your own. a vertical 9:16 crop keeps the action in frame.</p>
+        <p class="dim">mp4 16:9 or 9:16 · mp3 · gif loop · original, 24, 30, 60 or 120 fps · up to 4k.</p>
+        <p class="plac">fig 4 · shorts view, safe zones drawn</p>
+      </div>
+      <div class="stack">
+        <figure class="well r169" data-decode>
+          <img src="../../assets/img/shorts.webp" width="1920" height="1080" alt="The Studio Shorts view: a 9:16 preview with the safe zones drawn over it">
+          <canvas class="glyphs" aria-hidden="true"></canvas>
+        </figure>
+        <figure class="well rex" data-decode>
+          <img src="../../assets/img/export-presets.webp" width="1118" height="202" alt="The top of the Studio Export dialog, with the preset row: TikTok, Shorts, Reels, YouTube and Discord">
+          <canvas class="glyphs" aria-hidden="true"></canvas>
+        </figure>
+      </div>
+    </article>
+  </section>
+
+  <section class="install wrap" id="install" data-section="install" aria-labelledby="inst-h">
+    <h2 class="eyebrow" id="inst-h">install · three steps</h2>
+    <div class="inst-grid">
+      <ol class="steps3">
+        <li><span class="tag">[1]</span> download the installer. about 284 mb.</li>
+        <li><span class="tag">[2]</span> run it. smartscreen will warn, because the app is unsigned: more info, then run anyway.</li>
+        <li><span class="tag">[3]</span> open ship it studio. it installs for your windows account only, no admin needed.</li>
+      </ol>
+      <dl class="req">
+        <dt>needs</dt><dd>windows 10 or 11, 64-bit</dd>
+        <dt>export</dt><dd>an nvidia card (driver 570+) when it can, the processor otherwise</dd>
+        <dt>memory</dt><dd>8 gb ram or less: export long 4k projects at original or 1440p</dd>
+        <dt>look</dt><dd>dark by default, light and system themes, comfortable or compact, interface scale 90-125%. the ascii look can be turned off.</dd>
+      </dl>
+    </div>
+    <p class="again"><a class="get" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">[ download for windows ]</a> <span class="file">ShipItStudio-1.2.15-Setup.exe · about 284 mb</span></p>
+  </section>
+
+  <footer class="foot wrap">
+    <p class="nt">no analytics, cookies, trackers or third-party embeds on this page.</p>
+    <p class="hint">click the sky to call a strike</p>
+    <p class="sig">made in the collective · @ship-it 11-05</p>
+  </footer>
+
+</main>
+
+<script src="../shared/engine.js"></script>
+<script src="../shared/weather.js"></script>
+<script src="storm.js"></script>
+<script src="page.js"></script>
+</body>
+</html>

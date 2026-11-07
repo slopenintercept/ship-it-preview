@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#080B14">
+<meta name="description" content="Ship It Studio is a Windows video editor built for streamers. Download release 1.2.15.">
+<title>Ship It Studio · download</title>
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="exhibit.css">
+</head>
+<body>
+
+<!-- the night wall: the storm lives here, fixed behind everything -->
+<canvas id="storm" aria-hidden="true"></canvas>
+
+<!-- registration marks -->
+<div class="marks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<!-- corner chrome -->
+<a class="chrome tl" href="#storm-piece">ship it studio</a>
+<a class="chrome tr act-link" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">[ download ]</a>
+<p class="chrome bl" id="prog" aria-live="off">scroll ▬───  01/04 · 0/2 found</p>
+<p class="chrome br" id="clock">22:14 · night</p>
+
+<main>
+
+  <!-- 01 -->
+  <section class="stage" id="storm-piece" data-piece="storm" aria-labelledby="t-storm">
+    <div class="placard" id="storm-placard">
+      <p class="label"><span class="amber">▬</span> 01 · storm</p>
+      <h1 id="t-storm" class="poster">“The Storm”</h1>
+      <p class="what">A Windows editor built for streamers.</p>
+      <p class="list">Timeline, presets, 9:16 crop, MP4 · MP3 · GIF.</p>
+      <p class="mono">release 1.2.15 · windows 10 / 11 · 284 mb</p>
+      <a class="act" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">[ download for windows ]</a>
+      <p class="hint">move to light it. click the sky.</p>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="piece" id="cut" data-piece="cut" aria-labelledby="t-cut">
+    <div class="wall">
+      <p class="label"><span class="amber">▬</span> 02 · cut</p>
+      <figure class="art">
+        <img src="../../assets/img/editor.webp" width="1920" height="1080" alt="The Ship It Studio editor: preview, tracks and the effects panel.">
+      </figure>
+      <figure class="art strip">
+        <img src="../../assets/img/timeline.webp" width="1736" height="150" alt="A close view of the timeline with clips on several tracks.">
+      </figure>
+      <div class="placard">
+        <h2 class="poster" id="t-cut">“The Cut”</h2>
+        <p class="what">Cut the stream on a real timeline.</p>
+        <p class="medium"><span>medium</span> video, photos, sound, titles and stickers on tracks · trim, split, speed, reverse, keyframes · effects tab with presets · undo and redo · dark, light or system theme</p>
+        <p class="mono">installation view · test footage</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="piece crop" id="crop" data-piece="crop" aria-labelledby="t-crop">
+    <div class="wall">
+      <p class="label"><span class="amber">▬</span> 03 · crop</p>
+      <div class="duo">
+        <figure class="art">
+          <img src="../../assets/img/shorts.webp" width="1920" height="1080" alt="The vertical crop view with a 9:16 frame over the clip.">
+        </figure>
+        <figure class="reel">
+          <video muted loop playsinline preload="none" poster="../../assets/video/monitor-9x16-poster.webp" aria-label="A vertical 9:16 loop of test footage.">
+            <source src="../../assets/video/monitor-9x16.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+      <div class="placard">
+        <h2 class="poster" id="t-crop">“The Crop”</h2>
+        <p class="what">Make the vertical version.</p>
+        <p class="medium"><span>medium</span> 9:16 crop that keeps the action in frame · a vertical reel, ready to post</p>
+        <p class="mono">installation view · test footage</p>
+      </div>
+      <button class="find" id="find-crop" type="button" aria-label="a small mark in the margin">~</button>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="piece" id="ship" data-piece="ship" aria-labelledby="t-ship">
+    <div class="wall">
+      <p class="label"><span class="amber">▬</span> 04 · ship</p>
+      <figure class="art">
+        <img src="../../assets/img/home.webp" width="1920" height="1080" alt="The Home screen, with clips filed by the day they were captured.">
+      </figure>
+      <figure class="art strip">
+        <img src="../../assets/img/export-presets.webp" width="1118" height="202" alt="Export presets: TikTok, Shorts, Reels, YouTube and Discord.">
+      </figure>
+      <div class="placard">
+        <h2 class="poster" id="t-ship">“The Ship”</h2>
+        <p class="what">Drop the recording in. Send the reel out.</p>
+        <p class="medium"><span>from</span> record in obs as usual, replay-buffer saves included · drag onto home or ctrl+i · originals never touched · home files clips by the day captured: today, yesterday, then dates · star keepers, search, trash you can restore</p>
+        <p class="medium"><span>medium</span> presets for tiktok, shorts, reels, youtube, discord or custom · mp4 16:9 / 9:16, mp3, gif loop · original, 24, 30, 60, 120 fps, up to 4k</p>
+        <p class="mono">installation view · test footage</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- closing -->
+  <section class="close" id="install" aria-labelledby="t-install">
+    <div class="wall">
+      <div class="install">
+        <p class="label"><span class="amber">▬</span> <span id="t-install">install</span></p>
+        <ol class="steps">
+          <li><b>01</b><span>download <a class="act" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">[ ShipItStudio-1.2.15-Setup.exe ]</a></span></li>
+          <li><b>02</b><span>run it. it installs for your windows account only, no admin.</span></li>
+          <li><b>03</b><span>open ship it studio.</span></li>
+        </ol>
+        <p class="note">windows smartscreen will warn, because the installer is unsigned. that is expected: more info → run anyway.</p>
+        <dl class="req">
+          <div><dt>os</dt><dd>windows 10 or 11, 64-bit</dd></div>
+          <div><dt>memory</dt><dd>on 8 gb of ram or less, export at original or 1440p for long 4k projects</dd></div>
+          <div><dt>graphics</dt><dd>exports use an nvidia card (driver 570+) when they can, the processor otherwise</dd></div>
+        </dl>
+      </div>
+      <p class="end">go make the highlight.</p>
+      <p class="tally" id="tally">0/2 found</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>no analytics, cookies, trackers or third-party embeds.</p>
+  <p>made in the collective</p>
+  <p class="sig">@ship-it 11-05</p>
+</footer>
+
+<script src="../shared/engine.js"></script>
+<script src="../shared/weather.js"></script>
+<script src="scene.js"></script>
+<script src="page.js"></script>
+</body>
+</html>

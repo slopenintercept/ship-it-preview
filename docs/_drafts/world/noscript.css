@@ -1,0 +1,5 @@
+/* No JavaScript: show everything, skip the intro. */
+html.booting .chrome, html.booting main, html.booting .frame { opacity: 1 !important; }
+html.booting body { overflow: auto !important; }
+.well img, .well video { opacity: 1 !important; }
+.well canvas { display: none; }

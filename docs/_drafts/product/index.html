@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#080B14">
+<meta name="description" content="Ship It Studio is a Windows video editor built for streamers. Download release 1.2.15.">
+<title>Ship It Studio · download</title>
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="product.css">
+</head>
+<body>
+
+<canvas id="field" aria-hidden="true"></canvas>
+
+<div class="page">
+
+  <header class="top">
+    <a class="brand" data-dim href="#" aria-label="Ship It Studio">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="15" fill="#0B0C0D" stroke="#E8EAEA" stroke-opacity="0.3" stroke-width="1.6"/><path d="M36.9 13.6a3.2 3.2 0 0 0-5.4-1.6l-19 20.4A3.2 3.2 0 0 0 14.8 38h9.6l-3.3 12.4a3.2 3.2 0 0 0 5.4 1.6l19-20.4A3.2 3.2 0 0 0 43.2 26h-9.6z" fill="#E8EAEA"/></svg>
+      <span>Ship It Studio</span>
+    </a>
+    <span class="ver" data-dim>1.2.15 · Windows</span>
+    <a class="btn btn-ghost" data-dim href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">Download</a>
+  </header>
+
+  <main class="stage">
+
+    <section class="copy" aria-labelledby="h">
+      <p class="eyebrow" data-dim>the editor for streamers</p>
+      <h1 id="h" data-dim><span>The stream is long.</span> <span>The highlight is short.</span></h1>
+      <p class="lede" data-dim>Bring in your recordings, cut them on a real timeline, and export a reel for YouTube, TikTok or Shorts.</p>
+      <div class="get" data-dim>
+        <a class="btn btn-solid" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">Download for Windows</a>
+        <p class="fine">ShipItStudio-1.2.15-Setup.exe · about 284 MB · Windows 10 or 11, 64-bit</p>
+      </div>
+      <dl class="facts" data-dim>
+        <div><dt>exports</dt><dd>mp4 16:9 · 9:16 · mp3 · gif</dd></div>
+        <div><dt>quality</dt><dd>up to 4k · 120 fps</dd></div>
+        <div><dt>yours</dt><dd>originals are never changed</dd></div>
+      </dl>
+    </section>
+
+    <section class="product" aria-label="Inside Ship It Studio">
+      <div class="tabs" role="tablist" aria-label="Views" data-dim>
+        <button class="tab" role="tab" id="tab-edit" aria-controls="panel-edit" aria-selected="true" data-view="edit" type="button">edit</button>
+        <button class="tab" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="false" tabindex="-1" data-view="home" type="button">home</button>
+        <button class="tab" role="tab" id="tab-shorts" aria-controls="panel-shorts" aria-selected="false" tabindex="-1" data-view="shorts" type="button">shorts</button>
+        <button class="tab" role="tab" id="tab-export" aria-controls="panel-export" aria-selected="false" tabindex="-1" data-view="export" type="button">export</button>
+      </div>
+
+      <div class="frame" id="frame">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span id="view-name">edit</span></div>
+        <div class="shot">
+          <div class="panel is-on" role="tabpanel" id="panel-edit" aria-labelledby="tab-edit" aria-describedby="cap" tabindex="0" data-cap="Video, photos, sound and titles on tracks. Trim, split, speed, reverse and keyframes, with an Effects tab beside them.">
+            <img src="../../assets/img/editor.webp" width="1920" height="1080" alt="The Ship It Studio editor: preview, tracks on a timeline and the effects panel.">
+          </div>
+          <div class="panel" role="tabpanel" id="panel-home" aria-labelledby="tab-home" aria-describedby="cap" tabindex="0" hidden data-cap="Clips are filed by the day you captured them. Star keepers, search, and restore anything from the Trash.">
+            <img src="../../assets/img/home.webp" width="1920" height="1080" alt="Home: recordings filed by day, with stars, search and a Trash.">
+          </div>
+          <div class="panel" role="tabpanel" id="panel-shorts" aria-labelledby="tab-shorts" aria-describedby="cap" tabindex="0" hidden data-cap="A 9:16 crop that keeps the action in frame, with safe zones so captions stay clear of the app's buttons.">
+            <img src="../../assets/img/shorts.webp" width="1920" height="1080" alt="The Shorts view: a vertical 9:16 crop following the action, with safe zones.">
+          </div>
+          <div class="panel panel-export" role="tabpanel" id="panel-export" aria-labelledby="tab-export" aria-describedby="cap" tabindex="0" hidden data-cap="Presets for TikTok, Shorts, Reels, YouTube and Discord, or your own. Pick the frame rate, up to 4K.">
+            <img class="back" src="../../assets/img/editor.webp" width="1920" height="1080" alt="">
+            <img class="front" src="../../assets/img/export-presets.webp" width="1118" height="202" alt="Export presets: TikTok, Shorts, Reels, YouTube, Discord or custom, with frame rate and resolution.">
+          </div>
+        </div>
+      </div>
+
+      <p class="cap" id="cap" data-dim>Video, photos, sound and titles on tracks. Trim, split, speed, reverse and keyframes, with an Effects tab beside them.</p>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <button class="link" type="button" id="open-notes" data-dim aria-haspopup="dialog">Install notes</button>
+    <p class="mid" data-dim><span class="hint">Click the sky for lightning. </span>No analytics, cookies or trackers.</p>
+    <p class="sig" data-dim>made in the collective</p>
+  </footer>
+
+</div>
+
+<dialog id="notes" class="notes" aria-labelledby="notes-t">
+  <div class="notes-in">
+    <div class="notes-head">
+      <h2 id="notes-t">Install notes</h2>
+      <button class="close" type="button" id="close-notes" aria-label="Close install notes">close</button>
+    </div>
+    <ol class="steps">
+      <li><span>1</span><div>Download <code>ShipItStudio-1.2.15-Setup.exe</code>.</div></li>
+      <li><span>2</span><div>Run it. It installs for your Windows account only and does not ask for admin.</div></li>
+      <li><span>3</span><div>Open Ship It Studio from the Start menu and drop in your recordings.</div></li>
+    </ol>
+    <p class="warn">Windows SmartScreen will warn about the installer, because it is not signed yet. Choose <b>More info</b>, then <b>Run anyway</b>.</p>
+    <h3>Requirements</h3>
+    <dl class="req">
+      <dt>system</dt><dd>Windows 10 or 11, 64-bit</dd>
+      <dt>install</dt><dd>for your account only, no admin</dd>
+      <dt>exports</dt><dd>NVIDIA driver 570 or newer is optional; the processor is used otherwise</dd>
+      <dt>memory</dt><dd>With 8 GB or less, export at Original or 1440p for long 4K projects</dd>
+    </dl>
+    <a class="btn btn-solid" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">Download for Windows</a>
+  </div>
+</dialog>
+
+<script src="../shared/engine.js"></script>
+<script src="../shared/weather.js"></script>
+<script src="storm.js"></script>
+<script src="page.js"></script>
+</body>
+</html>
