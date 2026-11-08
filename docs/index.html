@@ -1,358 +1,114 @@
 <!doctype html>
-<!--
-  THE ONE DOWNLOAD. Every tester release updates these, and only these (search this file for "1.2.15"):
-    version    1.2.15
-    file name  ShipItStudio-1.2.15-Setup.exe
-    size       283,883,092 bytes, shown on the page as "About 284 MB"
-    url        https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe
-  The url is the href of the three Download buttons (nav, hero, Download section). It is the only
-  download on this page: no source code, no archive, no other link out.
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0B0C0D">
-<title>Ship It Studio: the Windows editor built for streamers</title>
-<meta name="description" content="Ship It Studio is the Windows editor built for streamers. Bring in your recordings, cut them on a real timeline, and export a reel for YouTube, TikTok or Shorts.">
-<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/geist-mono.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css">
-<noscript><link rel="stylesheet" href="assets/css/no-js.css"></noscript>
-<script src="assets/js/glyph-flow.js" defer></script>
+<meta name="theme-color" content="#080B14">
+<meta name="description" content="Ship It Studio is a Windows video editor built for streamers. Download release 1.2.15.">
+<title>Ship It Studio · download</title>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/product.css">
 </head>
 <body>
 
-<!-- The moving backdrop: the Studio's glyph smoke and, large in the middle, the Ship It bolt drawn out of
-     moving glyphs. One canvas fixed to the viewport, behind everything. data-strength is the one contrast
-     lever: every glyph is drawn at that fraction of its own strength, so text keeps 4.5:1 over the
-     brightest pixel the bolt can put behind it. Under prefers-reduced-motion it is one finished still frame. -->
-<div class="backdrop" aria-hidden="true">
-  <canvas data-flow="backdrop" data-strength="0.22" data-seed="2" data-threshold="0.62"></canvas>
-  <div class="bolt-still"></div>
-</div>
+<canvas id="field" aria-hidden="true"></canvas>
 
 <div class="page">
 
-  <!-- ───────────── NAV ───────────── -->
-  <header class="wrap nav">
-    <a class="brand" href="#top" aria-label="Ship It Studio, top of page">
-      <svg viewBox="0 0 64 64" role="img" aria-label="Ship It"><rect x="2" y="2" width="60" height="60" rx="15" fill="#0B0C0D" stroke="#E8EAEA" stroke-opacity="0.3" stroke-width="1.6"/><path d="M36.9 13.6a3.2 3.2 0 0 0-5.4-1.6l-19 20.4A3.2 3.2 0 0 0 14.8 38h9.6l-3.3 12.4a3.2 3.2 0 0 0 5.4 1.6l19-20.4A3.2 3.2 0 0 0 43.2 26h-9.6z" fill="#E8EAEA"/></svg>
-      <span>SHIP IT STUDIO</span>
+  <header class="top">
+    <a class="brand" data-dim href="#" aria-label="Ship It Studio">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="15" fill="#0B0C0D" stroke="#E8EAEA" stroke-opacity="0.3" stroke-width="1.6"/><path d="M36.9 13.6a3.2 3.2 0 0 0-5.4-1.6l-19 20.4A3.2 3.2 0 0 0 14.8 38h9.6l-3.3 12.4a3.2 3.2 0 0 0 5.4 1.6l19-20.4A3.2 3.2 0 0 0 43.2 26h-9.6z" fill="#E8EAEA"/></svg>
+      <span>Ship It Studio</span>
     </a>
-    <nav class="nav-links" aria-label="Page">
-      <a class="nav-link" href="#workflow">How it works</a>
-      <a class="nav-link" href="#inside">A look inside</a>
-      <a class="nav-link" href="#requirements">Requirements</a>
-      <a class="nav-link" href="#download">Install</a>
-    </nav>
-    <a class="btn-primary btn-nav" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">Download</a>
+    <span class="ver" data-dim>1.2.15 · Windows</span>
+    <a class="btn btn-ghost" data-dim href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">Download</a>
   </header>
 
-  <main>
+  <main class="stage">
 
-  <!-- ───────────── HERO ───────────── -->
-  <section id="top" class="hero">
-    <div class="wrap hero-inner">
-      <div class="pill rise rise-2">
-        <span class="live-dot"></span>
-        <span>VERSION 1.2.15 · FOR WINDOWS</span>
+    <section class="copy" aria-labelledby="h">
+      <p class="eyebrow" data-dim>the editor for streamers</p>
+      <h1 id="h" data-dim><span>The stream is long.</span> <span>The highlight is short.</span></h1>
+      <p class="lede" data-dim>Bring in your recordings, cut them on a real timeline, and export a reel for YouTube, TikTok or Shorts.</p>
+      <div class="get" data-dim>
+        <a class="btn btn-solid" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">Download for Windows</a>
+        <p class="fine">ShipItStudio-1.2.15-Setup.exe · about 284 MB · Windows 10 or 11, 64-bit</p>
       </div>
-      <h1 class="rise rise-2">
-        <span class="dim">The stream is long.</span><br>The highlight is short.
-      </h1>
-      <p class="lede rise rise-3">Ship It Studio is the Windows editor built for streamers. Bring in your recordings, cut them on a real timeline, and export a reel for YouTube, TikTok or Shorts.</p>
-      <div class="cta rise rise-4">
-        <a class="btn-primary" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0B0C0D" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M8 2v8.5M4.5 7.5 8 11l3.5-3.5M2.5 13.5h11"/></svg>
-          Download for Windows
-        </a>
-        <div class="dl-meta">
-          <div class="file">ShipItStudio-1.2.15-Setup.exe</div>
-          <div>About 284 MB · Windows 10 or 11, 64-bit</div>
-        </div>
-      </div>
-      <a class="see-how rise rise-4" href="#workflow">See how it works ↓</a>
-    </div>
-
-    <!-- The monitor: the Studio's stage colour, corner brackets, its own glyph ground -->
-    <div class="wrap monitor-wrap rise rise-5">
-      <div class="well monitor">
-        <canvas class="glow" data-flow="well" data-ground="#060707" data-alpha-max="0.2" data-alpha-min="0.06" data-threshold="0.6" data-seed="3" data-fps="20" aria-hidden="true"></canvas>
-        <div class="mon-bar">
-          <span class="mon-tab">PROGRAM</span>
-          <span class="mon-tc">00:00:35:28</span>
-        </div>
-        <div class="mon-body">
-          <div class="mon-main">
-            <div class="frame">
-              <i class="brk brk-tl"></i><i class="brk brk-tr"></i><i class="brk brk-bl"></i><i class="brk brk-br"></i>
-              <video src="assets/video/monitor-16x9.mp4" poster="assets/video/monitor-16x9-poster.webp" autoplay muted loop playsinline preload="metadata" disablepictureinpicture data-motion="hero" aria-label="A looping Valorant montage playing in the Studio's monitor, with a 1V4 title"></video>
-            </div>
-            <div class="mon-meta">
-              <span><span class="on">01 / 03</span>&nbsp;&nbsp;CLIP-05</span>
-              <span>1920 × 1080<span class="only-d"> · FULL RES</span></span>
-            </div>
-          </div>
-          <div class="mon-lower">
-            <div class="mon-left">
-              <div class="transport">
-                <svg class="only-d" viewBox="0 0 14 14" fill="none" stroke="#A2A7AB" stroke-width="1.4" aria-hidden="true"><path d="M2 2v10M12 2 5 7l7 5z"/></svg>
-                <span class="play" aria-hidden="true"><svg viewBox="0 0 12 12" fill="#0B0C0D"><path d="M2.5 1.5v9l8-4.5z"/></svg></span>
-                <svg class="only-d" viewBox="0 0 14 14" fill="none" stroke="#A2A7AB" stroke-width="1.4" aria-hidden="true"><path d="M12 2v10M2 2l7 5-7 5z"/></svg>
-                <span class="time">0:35.95 <span>/ 1:12.00</span></span>
-                <span class="scrub only-d" aria-hidden="true"><i></i></span>
-              </div>
-              <div class="formats only-m">MP4 16:9 · MP4 9:16<br>MP3 AUDIO · GIF LOOP</div>
-            </div>
-            <!-- Shorts: the 9:16 frame, same corner brackets -->
-            <div class="mon-short">
-              <div class="frame">
-                <i class="brk brk-tl"></i><i class="brk brk-tr"></i><i class="brk brk-bl"></i><i class="brk brk-br"></i>
-                <video src="assets/video/monitor-9x16.mp4" poster="assets/video/monitor-9x16-poster.webp" autoplay muted loop playsinline preload="metadata" disablepictureinpicture data-motion="hero" aria-label="The same moment framed 9:16 for Shorts and TikTok"></video>
-              </div>
-              <div class="mon-short-cap">9:16<span class="only-d"> · 1080 × 1920</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- the real timeline, cropped from a Studio screenshot -->
-      <div class="strip pan"><img src="assets/img/timeline.webp" width="1736" height="150" alt="The Studio's timeline: a Valorant montage of five clips on a video track, with three titles and cut markers above them and their sound drawn underneath"></div>
-      <div class="hero-foot-m">Your original clips are never changed</div>
-      <div class="hero-foot">
-        <span>Exports</span>
-        <span>MP4 16:9 &nbsp;·&nbsp; MP4 9:16 &nbsp;·&nbsp; MP3 audio &nbsp;·&nbsp; GIF loop</span>
-        <span>Your original clips are never changed</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── THE WORKFLOW ───────────── -->
-  <section id="workflow" class="section workflow">
-    <div class="wrap">
-      <div class="rule-dots"></div>
-      <div class="eyebrow">HOW IT WORKS</div>
-      <h2 class="h2">From last night’s stream to a finished reel, in four steps.</h2>
-
-      <div class="steps">
-        <div class="rail" aria-hidden="true"></div>
-        <div class="railfill" aria-hidden="true"></div>
-
-        <!-- 01 -->
-        <article class="step scene">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="step-text">
-            <div class="step-no">01 / 04 &nbsp;·&nbsp; RECORD</div>
-            <h3>Record in OBS.</h3>
-            <p>Record in OBS the way you always do, replay-buffer saves included. Then bring the videos in: drag them onto Home, or press Ctrl+I to browse.</p>
-            <ul class="ticks">
-              <li>Drop in as many videos as you like</li>
-              <li>Your own recordings are never touched</li>
-            </ul>
-          </div>
-          <div class="step-vis">
-            <div class="well drop">
-              <div class="drop-in">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#A2A7AB" stroke-width="1.4" stroke-linecap="square" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M4 15v5h16v-5"/></svg>
-                <div class="drop-a">DROP VIDEOS ANYWHERE</div>
-                <div class="drop-b">OR CTRL I TO BROWSE</div>
-                <div class="drop-files">
-                  <div><span>Replay 2026-11-03 21-14-09.mp4</span><i>+<span class="only-d"> ADDED</span></i></div>
-                  <div><span>Replay 2026-11-03 21-40-51.mp4</span><i>+<span class="only-d"> ADDED</span></i></div>
-                </div>
-              </div>
-            </div>
-            <div class="cap">HOME · ADD CLIPS</div>
-          </div>
-        </article>
-
-        <!-- 02 -->
-        <article class="step scene">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="step-text">
-            <div class="step-no">02 / 04 &nbsp;·&nbsp; ORGANIZE</div>
-            <h3>Every clip, filed by day.</h3>
-            <p>Home lays your clips out by the day they were captured, newest first: Today, Yesterday, then each date. Star the keepers, search the rest, and start a project from any clip or any whole day.</p>
-            <ul class="ticks">
-              <li>Projects can mix clips from any day</li>
-              <li>Binned clips wait in a Trash you can restore from</li>
-            </ul>
-          </div>
-          <div class="step-vis">
-            <div class="well pan"><img class="shot" src="assets/img/home.webp" width="1920" height="1080" loading="lazy" alt="Ship It Studio's Home screen: a Valorant montage project, then Valorant clips grouped under Today, Yesterday and Thursday"></div>
-            <div class="cap"><span class="cap-fluid">HOME · PROJECTS AND CLIPS BY DAY · VALORANT MONTAGE</span><span class="cap-pan">HOME · SWIPE TO LOOK AROUND → · VALORANT MONTAGE</span></div>
-          </div>
-        </article>
-
-        <!-- 03 -->
-        <article class="step scene">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="step-text">
-            <div class="step-no">03 / 04 &nbsp;·&nbsp; EDIT</div>
-            <h3>Cut it on a real timeline.</h3>
-            <p>Video, photos, sound, titles and stickers sit on tracks and play together. Trim and split, change the speed, play a clip backwards, animate it with keyframes, and drop in a title from a ready-made style.</p>
-            <ul class="ticks">
-              <li>Picture effects, sound effects and presets, all in the Effects tab</li>
-              <li>Undo and redo, so you can try things</li>
-            </ul>
-          </div>
-          <div class="step-vis">
-            <div class="well pan"><img class="shot" src="assets/img/editor.webp" width="1920" height="1080" loading="lazy" alt="The Studio's editor: media bin, a Valorant clip in the preview with a 1V4 title, the effects panel and the montage timeline"></div>
-            <div class="cap"><span class="cap-fluid">EDIT · TIMELINE, PREVIEW AND INSPECTOR · VALORANT MONTAGE</span><span class="cap-pan">EDIT · SWIPE TO LOOK AROUND → · VALORANT MONTAGE</span></div>
-          </div>
-        </article>
-
-        <!-- 04 -->
-        <article class="step scene">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="step-text">
-            <div class="step-no">04 / 04 &nbsp;·&nbsp; EXPORT</div>
-            <h3>Export for where it's going.</h3>
-            <p>Pick a preset for TikTok, Shorts, Reels, YouTube or Discord, or set the format, frame rate and size yourself. Vertical 9:16 uses a smart crop that keeps the action in frame, and your original clips are never changed.</p>
-            <ul class="ticks">
-              <li>MP4 horizontal or vertical, MP3 audio only, or a GIF</li>
-              <li>Original, 24, 30, 60 or 120 fps · up to 4K</li>
-            </ul>
-            <div class="soon">
-              <b>COMING SOON</b>
-              <span>Post straight to TikTok and YouTube</span>
-            </div>
-          </div>
-          <div class="step-vis">
-            <div class="well pan"><img class="shot export-shot" src="assets/img/export-presets.webp" width="1118" height="202" loading="lazy" alt="The top of the Studio's Export dialog for the Valorant montage, with the preset row: TikTok, Shorts, Reels, YouTube and Discord"></div>
-            <div class="cap"><span class="cap-fluid">EXPORT · PRESETS · VALORANT MONTAGE</span><span class="cap-pan">EXPORT · SWIPE TO LOOK AROUND → · VALORANT MONTAGE</span></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── A LOOK INSIDE ───────────── -->
-  <section id="inside" class="section inside">
-    <div class="wrap">
-      <div class="rule-dots"></div>
-      <div class="eyebrow">A LOOK INSIDE</div>
-      <h2 class="h2">Made for the dark, the way a stream is.</h2>
-      <p class="lede2">Footage first: the interface stays out of the picture's way, with one accent for what is live or selected and a quiet moving backdrop of glyphs behind it all.</p>
-
-      <div class="inside-top">
-        <div class="inside-shot">
-          <div class="well pan"><img class="shot" src="assets/img/shorts.webp" width="1920" height="1080" loading="lazy" alt="The Studio's Shorts view: a Valorant clip framed 9:16 with the safe zones drawn over it, and the glyph background moving around it"></div>
-          <div class="cap"><span>SHORTS VIEW · SAFE ZONES DRAWN OVER THE PREVIEW<span class="only-m"> · </span></span><span>VALORANT MONTAGE</span></div>
-        </div>
-        <div class="inside-side">
-          <div class="bolt-card">
-            <div class="well bolt-well">
-              <canvas data-flow="bolt" aria-label="The Ship It bolt drawn out of glyphs, as in the Studio's startup intro" role="img"></canvas>
-            </div>
-            <div class="cap">THE STARTUP INTRO · THE BOLT, STRUCK IN GLYPHS</div>
-          </div>
-          <div class="panel">
-            <div class="label teal">ASCII LOOK</div>
-            <p>The moving glyph background is part of the Studio. In Settings you can switch the ASCII look off, or choose how much of it shows through the panels.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cards">
-        <div class="panel">
-          <div class="label">DARK, OR LIGHT</div>
-          <div class="title">Dark by default. Light and system themes when you want them.</div>
-          <p>Comfortable or Compact spacing, and an interface scale of 90, 100, 110 or 125%.</p>
-        </div>
-        <div class="panel">
-          <div class="label">YOURS, UNTOUCHED</div>
-          <div class="title">Editing never changes your recordings.</div>
-          <p>Everything you do is a trim, a layer or an export. A binned clip sits in the Trash until you empty it.</p>
-        </div>
-        <div class="panel">
-          <div class="label">YOUR PC DOES THE WORK</div>
-          <div class="title">Exports use your graphics card when they can.</div>
-          <p>If they can't, the processor takes over. Slower, same result.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────── REQUIREMENTS ───────────── -->
-  <section id="requirements" class="section reqs">
-    <div class="wrap reqs-grid">
-      <div class="intro">
-        <div class="rule-dots"></div>
-        <div class="eyebrow">SYSTEM REQUIREMENTS</div>
-        <h2 class="h2">Runs on an ordinary Windows PC.</h2>
-        <p>Windows only for now. Everything the Studio needs is inside the installer.</p>
-      </div>
-      <dl class="req-list">
-        <div><dt>SYSTEM</dt><dd>Windows 10 or 11, 64-bit (x64)</dd></div>
-        <div><dt>INSTALL</dt><dd>For your Windows account only. No administrator rights needed.</dd></div>
-        <div><dt>DOWNLOAD</dt><dd>About 284 MB, one file</dd></div>
-        <div><dt>GRAPHICS CARD</dt><dd>Optional. Exports use an NVIDIA card (driver 570 or newer) when they can, and the processor otherwise.</dd></div>
-        <div><dt>MEMORY</dt><dd>A 4K export of a long project needs a lot of memory. On a PC with 8 GB or less, export at Original or 1440p.</dd></div>
+      <dl class="facts" data-dim>
+        <div><dt>exports</dt><dd>mp4 16:9 · 9:16 · mp3 · gif</dd></div>
+        <div><dt>quality</dt><dd>up to 4k · 120 fps</dd></div>
+        <div><dt>yours</dt><dd>originals are never changed</dd></div>
       </dl>
-    </div>
-  </section>
+    </section>
 
-  <!-- ───────────── DOWNLOAD ───────────── -->
-  <section id="download" class="section download">
-    <div class="wrap">
-      <div class="well dl-well">
-        <canvas class="glow" data-flow="well" data-ground="#060707" data-alpha-max="0.17" data-alpha-min="0.05" data-threshold="0.6" data-seed="21" data-fps="15" aria-hidden="true"></canvas>
-        <div class="dl-grid">
-          <div>
-            <div class="dl-kicker"><span class="live-dot"></span>LATEST · VERSION 1.2.15</div>
-            <h2>Ship your first reel tonight.</h2>
-            <p class="dl-p">One installer, Windows 10 or 11. Your settings, clips and projects stay put when you update.</p>
-            <a class="btn-primary btn-block-m" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0B0C0D" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M8 2v8.5M4.5 7.5 8 11l3.5-3.5M2.5 13.5h11"/></svg>
-              Download for Windows
-            </a>
-            <div class="dl-meta">
-              <div class="file">ShipItStudio-1.2.15-Setup.exe</div>
-              <div>About 284 MB · Windows 10 or 11, 64-bit</div>
-            </div>
+    <section class="product" aria-label="Inside Ship It Studio">
+      <div class="tabs" role="tablist" aria-label="Views" data-dim>
+        <button class="tab" role="tab" id="tab-edit" aria-controls="panel-edit" aria-selected="true" data-view="edit" type="button">edit</button>
+        <button class="tab" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="false" tabindex="-1" data-view="home" type="button">home</button>
+        <button class="tab" role="tab" id="tab-shorts" aria-controls="panel-shorts" aria-selected="false" tabindex="-1" data-view="shorts" type="button">shorts</button>
+        <button class="tab" role="tab" id="tab-export" aria-controls="panel-export" aria-selected="false" tabindex="-1" data-view="export" type="button">export</button>
+      </div>
+
+      <div class="frame" id="frame">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span id="view-name">edit</span></div>
+        <div class="shot">
+          <div class="panel is-on" role="tabpanel" id="panel-edit" aria-labelledby="tab-edit" aria-describedby="cap" tabindex="0" data-cap="Video, photos, sound and titles on tracks. Trim, split, speed, reverse and keyframes, with an Effects tab beside them.">
+            <img src="assets/img/editor.webp" width="1920" height="1080" alt="The Ship It Studio editor: preview, tracks on a timeline and the effects panel.">
           </div>
-          <div class="install">
-            <div class="label">INSTALL IN THREE STEPS</div>
-            <ol>
-              <li><span>01</span><span>Download <code>ShipItStudio-1.2.15-Setup.exe</code> and run it.</span></li>
-              <li><span>02</span><span>Windows SmartScreen may show a blue <strong>“Windows protected your PC”</strong> box. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</span></li>
-              <li><span>03</span><span>Let it finish, then open Ship It Studio from the Start menu.</span></li>
-            </ol>
-            <div class="warn">
-              <div class="label">WHY THE WARNING</div>
-              <p>This is expected: the installer isn't code-signed yet, and SmartScreen warns about anything it hasn't seen signed. Some antivirus tools do the same on first launch. Allow it, and it should stop asking.</p>
-            </div>
+          <div class="panel" role="tabpanel" id="panel-home" aria-labelledby="tab-home" aria-describedby="cap" tabindex="0" hidden data-cap="Clips are filed by the day you captured them. Star keepers, search, and restore anything from the Trash.">
+            <img src="assets/img/home.webp" width="1920" height="1080" alt="Home: recordings filed by day, with stars, search and a Trash.">
+          </div>
+          <div class="panel" role="tabpanel" id="panel-shorts" aria-labelledby="tab-shorts" aria-describedby="cap" tabindex="0" hidden data-cap="A 9:16 crop that keeps the action in frame, with safe zones so captions stay clear of the app's buttons.">
+            <img src="assets/img/shorts.webp" width="1920" height="1080" alt="The Shorts view: a vertical 9:16 crop following the action, with safe zones.">
+          </div>
+          <div class="panel panel-export" role="tabpanel" id="panel-export" aria-labelledby="tab-export" aria-describedby="cap" tabindex="0" hidden data-cap="Presets for TikTok, Shorts, Reels, YouTube and Discord, or your own. Pick the frame rate, up to 4K.">
+            <img class="back" src="assets/img/editor.webp" width="1920" height="1080" alt="">
+            <img class="front" src="assets/img/export-presets.webp" width="1118" height="202" alt="Export presets: TikTok, Shorts, Reels, YouTube, Discord or custom, with frame rate and resolution.">
           </div>
         </div>
       </div>
-    </div>
-  </section>
+
+      <p class="cap" id="cap" data-dim>Video, photos, sound and titles on tracks. Trim, split, speed, reverse and keyframes, with an Effects tab beside them.</p>
+    </section>
 
   </main>
 
-  <!-- ───────────── FOOTER ───────────── -->
   <footer class="foot">
-    <div class="wrap foot-in">
-      <div>
-        <div class="brand">
-          <svg viewBox="0 0 64 64" role="img" aria-label="Ship It"><rect x="2" y="2" width="60" height="60" rx="15" fill="#0B0C0D" stroke="#E8EAEA" stroke-opacity="0.3" stroke-width="0.8"/><path d="M36.9 13.6a3.2 3.2 0 0 0-5.4-1.6l-19 20.4A3.2 3.2 0 0 0 14.8 38h9.6l-3.3 12.4a3.2 3.2 0 0 0 5.4 1.6l19-20.4A3.2 3.2 0 0 0 43.2 26h-9.6z" fill="#E8EAEA"/></svg>
-          <span>SHIP IT STUDIO</span>
-        </div>
-        <div class="ver">Version 1.2.15 · Windows only for now</div>
-      </div>
-      <div class="foot-side">
-        <p>This page has no analytics, no cookies, no trackers and no third-party embeds. It is plain static files, with its own fonts.</p>
-        <div class="foot-links"><a href="#workflow">How it works</a><a href="#requirements">Requirements</a><a href="#download">Install</a><a href="#top"><span class="only-d">Back to top</span><span class="only-m">Top</span> ↑</a></div>
-      </div>
-    </div>
+    <button class="link" type="button" id="open-notes" data-dim aria-haspopup="dialog">Install notes</button>
+    <p class="mid" data-dim><span class="hint">Click the sky for lightning. </span>No analytics, cookies or trackers.</p>
+    <p class="sig" data-dim>made in the collective</p>
   </footer>
+
 </div>
 
+<dialog id="notes" class="notes" aria-labelledby="notes-t">
+  <div class="notes-in">
+    <div class="notes-head">
+      <h2 id="notes-t">Install notes</h2>
+      <button class="close" type="button" id="close-notes" aria-label="Close install notes">close</button>
+    </div>
+    <ol class="steps">
+      <li><span>1</span><div>Download <code>ShipItStudio-1.2.15-Setup.exe</code>.</div></li>
+      <li><span>2</span><div>Run it. It installs for your Windows account only and does not ask for admin.</div></li>
+      <li><span>3</span><div>Open Ship It Studio from the Start menu and drop in your recordings.</div></li>
+    </ol>
+    <p class="warn">Windows SmartScreen will warn about the installer, because it is not signed yet. Choose <b>More info</b>, then <b>Run anyway</b>.</p>
+    <h3>Requirements</h3>
+    <dl class="req">
+      <dt>system</dt><dd>Windows 10 or 11, 64-bit</dd>
+      <dt>install</dt><dd>for your account only, no admin</dd>
+      <dt>exports</dt><dd>NVIDIA driver 570 or newer is optional; the processor is used otherwise</dd>
+      <dt>memory</dt><dd>With 8 GB or less, export at Original or 1440p for long 4K projects</dd>
+    </dl>
+    <a class="btn btn-solid" href="https://github.com/slopenintercept/ship-it-preview/releases/download/v1.2.15/ShipItStudio-1.2.15-Setup.exe">Download for Windows</a>
+  </div>
+</dialog>
+
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/weather.js"></script>
+<script src="assets/js/storm.js"></script>
+<script src="assets/js/page.js"></script>
 </body>
 </html>
