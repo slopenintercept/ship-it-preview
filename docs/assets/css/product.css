@@ -145,3 +145,11 @@ html.intro .page { opacity: 0; pointer-events: none; }
 }
 .intro-mark.gone { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .intro-mark { display: none; } }
+
+/* The export tab is the whole Studio window with the Export dialog over it. On a phone the frame
+   crops in to the dialog and a little of the editor around it, so the dialog is as large as it can be. */
+@media (max-width: 430px) {
+  .shot:has(#panel-export:not([hidden])) { aspect-ratio: 16 / 10; }
+  #panel-export { overflow: hidden; }
+  #panel-export img { position: absolute; width: 120%; max-width: none; height: auto; left: -10%; top: -4%; }
+}
